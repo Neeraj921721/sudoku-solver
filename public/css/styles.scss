@@ -1,0 +1,70 @@
+body {
+    font-family: Calibri, sans-serif;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#sudoku-img {
+    margin-right: 2rem;
+    align-self: center;
+
+    img {
+        height: 5rem;
+        display: flex;
+    }
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.container {
+    text-align: center;
+}
+
+.grid {
+    border-collapse: collapse;
+    font-size: 2rem;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+td {
+    border: solid thin;
+    height: 3rem;
+    width: 3rem;
+    text-align: center;
+    padding: 0rem;
+    outline: none;
+}
+
+colgroup,
+tbody {
+    border: solid medium;
+}
+
+.btn-group {
+    margin-top: 1rem;
+}
+
+.btn {
+    min-width: 5rem;
+    border-radius: 0.2rem;
+    border: solid 1px #bec3c7;
+    font-size: 1.2rem;
+    padding: 0.1rem 0.3rem;
+    cursor: pointer;
+}
+#solve-btn:hover{
+    color: green;
+}
+#clear-board-btn:hover{
+    color: red;
+}
