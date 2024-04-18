@@ -4,7 +4,8 @@
   "description": "This is Sudoku solver web project made using HTML,CSS,Javascript & Backtracking algorithm. Node.js Server is used in the back-end to run the project.",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon --watch public --ext html,css app.js"
+    "start": "nodemon --watch public --ext html,css,js app.js",
+    "dev": "nodemon app.js"
   },
   "author": "Neeraj Kumar Gond",
   "license": "ISC",
