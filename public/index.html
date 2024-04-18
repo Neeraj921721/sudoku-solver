@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SudoKu Solver</title>
     <link rel="stylesheet" href="./css/styles.css">
 </head>
+
+<body>
+
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup">
+            <span class="close" id="closePopup">&times;</span> <!-- Close button -->
+            <h2>Welcome!</h2>
+            <p>How to play:</p>
+            <ol>
+                <li>Enter random numbers in the boxes clicking on it in the range of 1-9 inclusive.</li>
+                <li>Make sure no same digits are there in the same row or same column as this makes the problem board
+                    invalid. Although, upon wrong board setup, program will alert you.</li>
+                <li>Once the numbers are enter, to solve the sudoku problem - just click on the button <b>Solve</b> and
+                    it will solve the sudoku for you.</li>
+                <li>To clear the board and start afresh, click on the button <b>Clear Board</b>.</li>
+            </ol>
+        </div>
+    </div>
+
     <header class="header">
         <div id="sudoku-img">
             <img src="./images/sudoku-icon.png" alt="sudoku icon">
@@ -18,9 +38,21 @@
     <div class="container">
         <h2>SudoKu Solver</h2>
         <table class="grid" id="sudoku-board">
-            <colgroup><col><col><col></colgroup>
-            <colgroup><col><col><col></colgroup>
-            <colgroup><col><col><col></colgroup>
+            <colgroup>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <colgroup>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <colgroup>
+                <col>
+                <col>
+                <col>
+            </colgroup>
             <tbody>
                 <tr>
                     <td contenteditable="true"></td>
@@ -137,9 +169,8 @@
     </footer>
 
     <!-- scripts -->
-    <script src="/public/js/sudoku.js"></script>
-    <script src="../app.js"></script>
-<body>
-    
+    <script src="./js/sudoku.js"></script>
+    <script src="./js/index.js"></script>
 </body>
+
 </html>
