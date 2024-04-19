@@ -1,3 +1,5 @@
+"use strict";
+
 const sudokuBoard = document.getElementById("sudoku-board");
 const solveButton = document.getElementById("solve-btn");
 const clearBoardButton = document.getElementById("clear-board-btn");
@@ -23,6 +25,16 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 });
 
+// Function to move cursor to the end of a contenteditable element
+function moveCursorToEnd(contentEditableElement) {
+    var range = document.createRange();
+    range.selectNodeContents(contentEditableElement);
+    range.collapse(false); // Collapse the range to the end
+    var selection = window.getSelection();
+    selection.removeAllRanges(); // Clear existing selection
+    selection.addRange(range); // Set new selection range
+}
+
 sudokuBoard.addEventListener("keyup", (event) => {
 	if (event.target && event.target.nodeName == "TD") {
 		let validNumberRegex = /[1-9]/;
@@ -33,6 +45,7 @@ sudokuBoard.addEventListener("keyup", (event) => {
 			validNumberRegex.test(tdElement.innerText[0])
 		) {
 			tdElement.innerText = tdElement.innerText[0];
+			moveCursorToEnd(tdElement);
 		} else {
 			tdElement.innerText = "";
 		}
@@ -127,7 +140,7 @@ solveButton.addEventListener("click", () => {
 	// if valid input then call the
 	// backtracking algorithm to solve the sudoku
 	if(validateRows && validateCols && validateBox){
-		SolveSudoku(boardInputElements);
+		sudokuSolver.solveSudoku(boardInputElements);
 	}else{
 		alert('Invalid Board Elements. Please read the rules carefully and try again!');
 	}
