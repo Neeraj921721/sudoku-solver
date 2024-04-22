@@ -8,8 +8,8 @@ Prerequisites environment setup:
 How to set up:
 1. clone the repository in your local.
 2. head to project directory which is sudoku-solver directory.
-3. open the command prompt/terminal and run the command to install all the dependencies: <b>npm install</b>
-4. Once all the dependencies are installed run the command to start the server: <b>npm run build</b>
+3. open the command prompt/terminal and run the command to install all the dependencies: <b>npm run build</b>
+4. Once all the dependencies are installed run the command to start the server: <b>npm run start</b>
 5. open your favourite browser and go to http://localhost:3000
 6. And that's all you need to do to start with the project.
 
