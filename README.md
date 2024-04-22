@@ -16,7 +16,7 @@ How to set up:
 How to play:
 1. Enter random numbers in the boxes clicking on it in the range of 1-9 inclusive.
 2. Make sure no same digits are there in the same row or same column as this makes the problem board invalid. Although, upon wrong board setup, program will alert you.
-3. Once the numbers are enter, to solve the sudoku problem - just click on the button <b>Solve</b> and it will solve the sudoku for you.
+3. Once the numbers are entered, to solve the sudoku problem - just click on the button <b>Solve</b> and it will solve the sudoku for you.
 4. To clear the board and start afresh, click on the button <b>Clear Board</b>.
 
 
