@@ -1,8 +1,10 @@
-"use strict";
+import {solveSudoku, isValidBoard} from './sudoku.mjs'; 
 
 const sudokuBoard = document.getElementById("sudoku-board");
 const solveButton = document.getElementById("solve-btn");
 const clearBoardButton = document.getElementById("clear-board-btn");
+
+
 
 // pop content
 document.addEventListener("DOMContentLoaded", function () {
@@ -90,8 +92,8 @@ solveButton.addEventListener("click", () => {
 
 	// if valid input then call the
 	// backtracking algorithm to solve the sudoku
-	if(sudokuSolver.isValidBoard(boardInputElements)){
-		const solution = sudokuSolver.solveSudoku(boardInputElements);
+	if(isValidBoard(boardInputElements)){
+		const solution = solveSudoku(boardInputElements);
 		if(solution){
 			populateBoard(boardInputElements, solution);
 		}else{
