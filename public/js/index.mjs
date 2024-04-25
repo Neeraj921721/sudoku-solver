@@ -1,4 +1,4 @@
-import {solveSudoku, isValidBoard} from './sudoku.mjs'; 
+import { solveSudoku, isValidBoard } from './sudoku.mjs';
 
 const sudokuBoard = document.getElementById("sudoku-board");
 const solveButton = document.getElementById("solve-btn");
@@ -28,12 +28,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Function to move cursor to the end of a contenteditable element
 function moveCursorToEnd(contentEditableElement) {
-    var range = document.createRange();
-    range.selectNodeContents(contentEditableElement);
-    range.collapse(false); // Collapse the range to the end
-    var selection = window.getSelection();
-    selection.removeAllRanges(); // Clear existing selection
-    selection.addRange(range); // Set new selection range
+	var range = document.createRange();
+	range.selectNodeContents(contentEditableElement);
+	range.collapse(false); // Collapse the range to the end
+	var selection = window.getSelection();
+	selection.removeAllRanges(); // Clear existing selection
+	selection.addRange(range); // Set new selection range
+}
+
+function getNextEditableCell(cell) {
+	let nextCell = cell.nextElementSibling;
+	if (!nextCell) {
+		// If there is no next cell in the same row, find the next row
+		let nextRow = cell.parentElement.nextElementSibling;
+		if (nextRow) {
+			// Find the first editable cell in the next row
+			nextCell = nextRow.querySelector('td[contenteditable="true"]');
+		}
+
+		if(!nextRow){
+			let nextTbody = cell.closest('tbody').nextElementSibling;
+			if (nextTbody) {
+				// Find the first editable cell in the next tbody
+				nextCell = nextTbody.querySelector('td[contenteditable="true"]');
+			}
+		}		
+	}
+	return nextCell;
 }
 
 sudokuBoard.addEventListener("keyup", (event) => {
@@ -50,6 +71,10 @@ sudokuBoard.addEventListener("keyup", (event) => {
 		} else {
 			tdElement.innerText = "";
 		}
+		var nextCell = getNextEditableCell(tdElement);
+		if (nextCell) {
+			nextCell.focus();
+		}
 	}
 });
 
@@ -62,7 +87,7 @@ function clearBoard() {
 
 clearBoardButton.addEventListener("click", clearBoard);
 
-function getInputBoard(){
+function getInputBoard() {
 	let boardInputElements = [];
 
 	let tdElements = document.querySelectorAll(".grid td");
@@ -76,9 +101,9 @@ function getInputBoard(){
 	return boardInputElements;
 }
 
-function populateBoard(boardInput, solutionArray){
+function populateBoard(boardInput, solutionArray) {
 	let tdElements = document.querySelectorAll(".grid td");
-	for(let i=0; i<solutionArray.length; i++){
+	for (let i = 0; i < solutionArray.length; i++) {
 		// if(isNaN(boardInput[i])){
 		// 	tdElements[i].innerText = String(solutionArray[i]);
 		// }
@@ -92,14 +117,14 @@ solveButton.addEventListener("click", () => {
 
 	// if valid input then call the
 	// backtracking algorithm to solve the sudoku
-	if(isValidBoard(boardInputElements)){
+	if (isValidBoard(boardInputElements)) {
 		const solution = solveSudoku(boardInputElements);
-		if(solution){
+		if (solution) {
 			populateBoard(boardInputElements, solution);
-		}else{
+		} else {
 			alert('Invalid Board!');
 		}
-	}else{
+	} else {
 		alert('Invalid Board Elements. Please read the rules carefully and try again!');
 	}
 });
