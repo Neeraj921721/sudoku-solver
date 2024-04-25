@@ -71,9 +71,11 @@ sudokuBoard.addEventListener("keyup", (event) => {
 		} else {
 			tdElement.innerText = "";
 		}
-		var nextCell = getNextEditableCell(tdElement);
-		if (nextCell) {
-			nextCell.focus();
+		if(event.key >= '1' && event.key<='9'){
+			var nextCell = getNextEditableCell(tdElement);
+			if (nextCell) {
+				nextCell.focus();
+			}
 		}
 	}
 });
