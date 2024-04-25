@@ -1,8 +1,12 @@
-const express = require('express');
-const path = require('path');
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const app = express();
 const port = 3000;
+
+const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
+const __dirname = path.dirname(__filename); // get the name of the directory
 
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));

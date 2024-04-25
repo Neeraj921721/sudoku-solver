@@ -2,10 +2,9 @@
   "name": "sudoku-solver",
   "version": "1.0.0",
   "description": "This is Sudoku solver web project made using HTML,CSS,Javascript & Backtracking algorithm. Node.js Server is used in the back-end to run the project.",
-  "main": "app.js",
+  "main": "app.mjs",
   "scripts": {
-    "start": "nodemon --watch public --ext html,css,js app.js",
-    "dev": "nodemon app.js",
+    "start": "nodemon app.mjs",
     "compile:sass": "node-sass --output-style compressed public/css/ -o public/css/",
     "build": "npm install && npm run compile:sass"
   },
